@@ -1,6 +1,7 @@
 from bs4 import BeautifulSoup
 import requests
 import json
+from datetime import datetime
 
 def get_prices():
     # Make the request to CoinMarketCap
@@ -14,7 +15,8 @@ def get_prices():
     # Define the coins we want to get the price of
     coins = ["BTC", "ETH", "DOGE"]
 
-    prices = {}
+    res = []
+    ind = 0
     # Loop through the rows in the table
     for row in tbody.children:
         r = list(row.children)
@@ -33,7 +35,12 @@ def get_prices():
         if a:
             price = a.get_text()
 
+        coin = {}
         if name in coins: 
-            prices[name] = price
-
-    return json.dumps(prices)
+            coin["name"] = name
+            coin["price"] = price
+            coin["timestamp"] = datetime.utcnow()
+            res.append(coin)
+            ind += 1
+    # Convert any type you don't recognize to string (Datetime in this case)
+    return  json.dumps(res, indent=4, sort_keys=True, default=str)
