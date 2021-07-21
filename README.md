@@ -19,4 +19,4 @@ Then, run this command in the projects directory:
 `````
 pip install -r requirements.txt
 `````
-To setup Azure function, check out this [link - URL](https://azurelessons.com/create-azure-function-visual-studio-code/).
+To setup Azure function, check out this [link](https://azurelessons.com/create-azure-function-visual-studio-code/).
