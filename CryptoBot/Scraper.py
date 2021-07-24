@@ -13,7 +13,7 @@ def get_prices():
     tbody = list(table.children)[2]
 
     # Define the coins we want to get the price of
-    coins = ["BTC", "ETH", "DOGE", "XRP"]
+    coins = ["BTC", "ETH", "DOGE", "XRP", "USDT", "ADA", "BNB"]
 
     res = []
     ind = 0
